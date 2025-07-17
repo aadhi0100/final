@@ -28,5 +28,16 @@
   <audio id="chime" src="https://cdn.pixabay.com/audio/2022/03/15/audio_f1f88e0c26.mp3" preload="auto"></audio>
   
   <script src="script.js"></script>
+
+  <script>
+    for (let i = 0; i < 60; i++) {
+      let sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      sparkle.style.opacity = Math.random();
+      document.body.appendChild(sparkle);
+    }
+  </script>
 </body>
 </html>
