@@ -1,14 +1,14 @@
 const predictions = {
-  1: ["You have the power to achieve anything you believe in.", "Today is your lucky day to start something new!"],
-  2: ["Every step you take brings you closer to your dreams.", "Smile — good energy follows you!"],
-  3: ["You are more capable than you know. Trust yourself.", "A surprise is coming your way soon."],
-  4: ["Hard work always pays off — keep going!", "Your patience is your secret strength."],
-  5: ["You are a source of light to others.", "Believe in your uniqueness."],
-  6: ["Kindness brings magic — and you're full of it.", "Stay positive, good things are around the corner."],
-  7: ["You are destined for greatness.", "Keep learning, keep growing."],
-  8: ["Your confidence can change your world.", "Good luck follows your energy."],
-  9: ["You inspire people even when you don't know it.", "Stay true to your heart."],
-  10:["Today, something amazing is waiting for you!", "Be bold. You’re meant to shine."]
+  1: ["Your dreams are waiting. Take the first step today!", "✨ A new opportunity will knock soon."],
+  2: ["Happiness surrounds you. Keep spreading your light.", "🌟 Your calm energy brings balance."],
+  3: ["You are stronger than you think.", "💖 A kind heart is your superpower."],
+  4: ["Patience will reward you. Trust the timing.", "🌼 Good news is growing like flowers!"],
+  5: ["You bring joy wherever you go.", "🍀 A lucky twist is on your way!"],
+  6: ["You are a healer. Your love helps others.", "✨ Magic blooms from your smile."],
+  7: ["Wisdom walks with you. You see beyond the surface.", "🔮 Someone needs your insight."],
+  8: ["You’re born to lead and uplift others.", "🏆 You attract success with your actions."],
+  9: ["Your soul shines with compassion.", "🌈 A colorful journey starts soon."],
+  10:["Today is a magical chapter. Believe!", "💫 You were made to shine brightly."]
 };
 
 function revealPrediction() {
@@ -17,31 +17,30 @@ function revealPrediction() {
   const chime = document.getElementById('chime');
 
   if (num >= 1 && num <= 10) {
-    const [fortune, luck] = predictions[num];
-
-    resultDiv.innerHTML = `<strong>📜 "${fortune}"</strong><br><br><em>🍀 ${luck}</em>`;
+    const [fortune, message] = predictions[num];
+    resultDiv.innerHTML = `<strong>📜 ${fortune}</strong><br><br><em>💖 ${message}</em>`;
 
     chime.currentTime = 0;
     chime.play();
 
-    const speak = new SpeechSynthesisUtterance(`${fortune}. ${luck}`);
-    speak.pitch = 1.4;
-    speak.rate = 0.95;
+    const speech = new SpeechSynthesisUtterance(`${fortune}. ${message}`);
+    speech.pitch = 1.6;
+    speech.rate = 0.9;
+    speech.lang = 'en-US';
 
-    const sweetVoice = speechSynthesis.getVoices().find(v =>
+    const voices = window.speechSynthesis.getVoices();
+    const sweetVoice = voices.find(v =>
       v.name.includes("Google UK English Female") ||
-      v.name.includes("Google US English") ||
       v.name.toLowerCase().includes("female") ||
-      v.name.toLowerCase().includes("sweet") ||
-      v.lang === "en-US"
+      v.name.toLowerCase().includes("samantha")
     );
 
     if (sweetVoice) {
-      speak.voice = sweetVoice;
+      speech.voice = sweetVoice;
     }
 
-    speechSynthesis.speak(speak);
+    window.speechSynthesis.speak(speech);
   } else {
-    resultDiv.innerHTML = "❗ Please enter a number between 1 and 10.";
+    resultDiv.innerHTML = "❗ Please choose a number between 1 and 10.";
   }
 }
