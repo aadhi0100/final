@@ -2,22 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🔮 Life Prediction Magic</title>
+  <title>🌸 Magical Life Fortune Teller</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🔮 Pick a Number Between 1 and 10</h1>
+  <div class="magic-decor">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="decor flower1">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616493.png" class="decor flower2">
+    <img src="https://cdn-icons-png.flaticon.com/512/2825/2825104.png" class="decor crystal">
+    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" class="decor wand">
+  </div>
+
+  <h1>🔮 Pick Your Magical Number (1–10)</h1>
   <div class="emoji-dancer">💃</div>
+
   <div class="prediction-box">
     <input type="number" id="userNumber" min="1" max="10" placeholder="1-10" />
-    <br>
+    <br />
     <button onclick="revealPrediction()">Reveal My Fortune ✨</button>
     <div id="result"></div>
   </div>
-  <div class="footer">✨ Be the reason someone smiles today ✨</div>
+
+  <div class="footer">🌟 Trust the magic inside you 🌟</div>
 
   <audio id="chime" src="https://cdn.pixabay.com/audio/2022/03/15/audio_f1f88e0c26.mp3" preload="auto"></audio>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
