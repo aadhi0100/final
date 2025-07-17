@@ -1,7 +1,8 @@
+/* Base Page Styling */
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle, #0e0a1a 0%, #1c0f3f 100%);
+  background: radial-gradient(circle, #120a2a, #1e0f3a);
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   overflow: hidden;
@@ -9,18 +10,21 @@ body {
   position: relative;
 }
 
+/* Page Heading */
 h1 {
-  font-size: 2.2em;
+  font-size: 2.3em;
   color: #ffccff;
   margin-top: 40px;
   animation: glow 1.5s infinite alternate;
 }
 
+/* Glowing Text Effect */
 @keyframes glow {
   from { text-shadow: 0 0 10px #ff66cc; }
   to { text-shadow: 0 0 25px #ffccff; }
 }
 
+/* Prediction Box */
 .prediction-box {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid #ff99ff;
@@ -32,6 +36,7 @@ h1 {
   box-shadow: 0 0 30px #ff66cc88;
 }
 
+/* Input Styling */
 input[type="number"] {
   width: 60px;
   padding: 10px;
@@ -41,6 +46,7 @@ input[type="number"] {
   text-align: center;
 }
 
+/* Button Styling */
 button {
   padding: 10px 20px;
   font-size: 1.1em;
@@ -52,39 +58,63 @@ button {
   margin-top: 15px;
   transition: transform 0.3s ease;
 }
-
 button:hover {
   transform: scale(1.1);
 }
 
+/* Result Text Animation */
 #result {
   margin-top: 20px;
   font-size: 1.2em;
   animation: fadeIn 1.2s ease;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Dancing Emoji Girl */
 .emoji-dancer {
   font-size: 60px;
   animation: dance 1s infinite alternate ease-in-out;
   margin: 20px;
 }
-
 @keyframes dance {
   from { transform: rotate(-10deg) translateY(0); }
   to { transform: rotate(10deg) translateY(-10px); }
 }
 
+/* Footer */
 .footer {
   font-size: 0.95em;
   color: #eee;
   margin-bottom: 20px;
 }
 
+/* Sparkle/Glitter Background Animation (Golden + Silver) */
+.sparkle {
+  position: fixed;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, gold 40%, silver 60%);
+  animation: fall 6s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Star Sprinkle Layer Behind */
 body::before {
   content: '';
   position: absolute;
@@ -92,8 +122,8 @@ body::before {
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: sprinkle 15s linear infinite;
   z-index: 0;
@@ -102,12 +132,14 @@ body::before {
   from { background-position: 0 0; }
   to { background-position: 100px 100px; }
 }
+
+/* Keep Foreground Above Sparkle */
 body > * {
   position: relative;
   z-index: 1;
 }
 
-/* Decorative Elements */
+/* Floating Decorative Magic Items */
 .magic-decor .decor {
   position: absolute;
   width: 50px;
@@ -118,6 +150,7 @@ body > * {
 .flower2 { bottom: 40px; right: 30px; animation-delay: 1s; }
 .crystal  { top: 100px; right: 50px; animation-delay: 2s; }
 .wand     { bottom: 100px; left: 50px; animation-delay: 3s; }
+
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px) rotate(10deg); }
