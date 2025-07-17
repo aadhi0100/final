@@ -19,7 +19,6 @@ function revealPrediction() {
   if (num >= 1 && num <= 10) {
     const [fortune, message] = predictions[num];
     resultDiv.innerHTML = `<strong>📜 ${fortune}</strong><br><br><em>💖 ${message}</em>`;
-
     chime.currentTime = 0;
     chime.play();
 
