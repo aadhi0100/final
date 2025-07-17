@@ -7,7 +7,7 @@ const predictions = {
   6: ["You are a healer. Your love helps others.", "✨ Magic blooms from your smile."],
   7: ["Wisdom walks with you. You see beyond the surface.", "🔮 Someone needs your insight."],
   8: ["You’re born to lead and uplift others.", "🏆 You attract success with your actions."],
-  9: ["Your soul shines with compassion.", "🌈 A colorful journey starts soon."],
+  9: ["Your soul shines with compassion.", "💕 A colorful journey starts soon."],
   10:["Today is a magical chapter. Believe!", "💫 You were made to shine brightly."]
 };
 
