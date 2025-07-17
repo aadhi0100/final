@@ -1,12 +1,9 @@
 body {
-  background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
-  color: #fff;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle, #0e0a1a 0%, #1c0f3f 100%);
   font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  color: #fff;
   overflow: hidden;
   text-align: center;
   position: relative;
@@ -14,25 +11,25 @@ body {
 
 h1 {
   font-size: 2.2em;
-  margin-bottom: 20px;
   color: #ffccff;
+  margin-top: 40px;
   animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 5px #ff66cc; }
-  to { text-shadow: 0 0 20px #ff99ff; }
+  from { text-shadow: 0 0 10px #ff66cc; }
+  to { text-shadow: 0 0 25px #ffccff; }
 }
 
 .prediction-box {
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #ff66cc;
+  border: 2px solid #ff99ff;
   border-radius: 15px;
-  padding: 30px;
+  padding: 25px;
   width: 90%;
   max-width: 500px;
-  margin-top: 20px;
-  box-shadow: 0 0 20px #ff99cc88;
+  margin: 30px auto;
+  box-shadow: 0 0 30px #ff66cc88;
 }
 
 input[type="number"] {
@@ -41,7 +38,6 @@ input[type="number"] {
   font-size: 1.2em;
   border-radius: 8px;
   border: none;
-  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -53,7 +49,7 @@ button {
   border-radius: 10px;
   color: white;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
   transition: transform 0.3s ease;
 }
 
@@ -64,11 +60,11 @@ button:hover {
 #result {
   margin-top: 20px;
   font-size: 1.2em;
-  animation: fadeIn 2s ease;
+  animation: fadeIn 1.2s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -79,37 +75,50 @@ button:hover {
 }
 
 @keyframes dance {
-  from { transform: rotate(-15deg) translateY(0); }
-  to { transform: rotate(15deg) translateY(-10px); }
+  from { transform: rotate(-10deg) translateY(0); }
+  to { transform: rotate(10deg) translateY(-10px); }
 }
 
 .footer {
-  position: absolute;
-  bottom: 10px;
-  font-size: 0.9em;
-  color: #ccc;
+  font-size: 0.95em;
+  color: #eee;
+  margin-bottom: 20px;
 }
 
-/* Sprinkle background animation */
 body::before {
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.2) 2px, transparent 2px),
-                    radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: sprinkle 15s linear infinite;
   z-index: 0;
-  animation: sparkleMove 10s linear infinite;
 }
-
-@keyframes sparkleMove {
+@keyframes sprinkle {
   from { background-position: 0 0; }
   to { background-position: 100px 100px; }
 }
-
 body > * {
   position: relative;
   z-index: 1;
+}
+
+/* Decorative Elements */
+.magic-decor .decor {
+  position: absolute;
+  width: 50px;
+  opacity: 0.8;
+  animation: floaty 4s infinite ease-in-out;
+}
+.flower1 { top: 40px; left: 30px; animation-delay: 0s; }
+.flower2 { bottom: 40px; right: 30px; animation-delay: 1s; }
+.crystal  { top: 100px; right: 50px; animation-delay: 2s; }
+.wand     { bottom: 100px; left: 50px; animation-delay: 3s; }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px) rotate(10deg); }
 }
